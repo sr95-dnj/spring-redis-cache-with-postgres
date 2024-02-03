@@ -1,0 +1,18 @@
+spring:
+  cache:
+    type: redis
+    redis:
+      time-to-live: 60000
+      cache-null-values: true
+
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/config_db
+    username: postgres
+    password: 1234
+    hikari:
+      initialization-fail-timeout: 0
+  jpa:
+    generate-ddl: true
+    show-sql: true
