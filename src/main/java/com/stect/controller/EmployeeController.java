@@ -26,8 +26,9 @@ public class EmployeeController {
 
 
     @GetMapping("/employees")
-    public ResponseEntity<List<Employee>> getAllEmployees() {
-        return ResponseEntity.ok(employeeRepository.findAll());
+    @Cacheable(value = "employees")
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
     }
 
     @GetMapping("employees/{employeeId}")
